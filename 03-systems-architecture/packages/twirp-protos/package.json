@@ -1,0 +1,26 @@
+{
+  "name": "@repo/twirp-protos",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./priorities": "./src/protos/priorities.pb.ts",
+    "./todos": "./src/protos/todos.pb.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "generate": "npx twirpscript"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@turbo/gen": "^1.12.4",
+    "@types/eslint": "^8.56.5",
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "protoscript": "^0.0.20",
+    "twirpscript": "^0.0.69"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "proving-grounds",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "rimraf node_modules */**/node_modules apps/*/.next",
+    "dev:local-sa": "turbo run dev --filter=./apps/local-sa --filter=./packages/*",
+    "dev:local-api": "turbo run dev --filter=./apps/local-api --filter=./packages/*",
+    "dev:bff-sa": "turbo run dev --filter=./apps/bff-sa --filter=./apps/api-rest --filter=./packages/*",
+    "dev:bff-api": "turbo run dev --filter=./apps/bff-api --filter=./apps/api-rest --filter=./packages/*",
+    "dev:bff-trpc": "turbo run dev --filter=./apps/bff-trpc --filter=./apps/api-rest --filter=./packages/*",
+    "dev:bff-gql": "turbo run dev --filter=./apps/bff-gql --filter=./apps/api-gql --filter=./packages/*",
+    "dev:bff-twirp": "turbo run dev --filter=./apps/bff-twirp --filter=./apps/api-twirp --filter=./packages/*",
+    "dev:external-api-domain": "FRONTEND_SERVER=http://localhost:3005 turbo run dev --filter=./apps/external-api-domain --filter=./apps/api-rest --filter=./packages/*",
+    "dev:external-proxied": "FRONTEND_SERVER=http://localhost:3003 turbo run dev --filter=./apps/external-proxied --filter=./apps/api-rest --filter=./packages/*",
+    "dev:external-token": "FRONTEND_SERVER=http://localhost:3004 turbo run dev --filter=./apps/external-token --filter=./apps/api-rest-token --filter=./packages/*"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.3"
+  },
+  "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.5"
+  }
+}

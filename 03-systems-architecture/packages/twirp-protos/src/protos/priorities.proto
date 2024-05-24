@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+service Priorities {
+  rpc GetPriorities(PrioritiesEmpty) returns (PrioritiesList);
+}
+
+message PrioritiesEmpty {}
+
+message PrioritiesList {
+  repeated string priorities = 1;
+}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+service Todos {
+  rpc AddTodo(Todo) returns (TodoWithID);
+  rpc GetTodos(TodosEmpty) returns (TodoList);
+  rpc UpdateTodo(UpdateTodoRequest) returns (TodoWithID);
+  rpc DeleteTodo(DeleteTodoRequest) returns (TodosEmpty);
+}
+
+message TodosEmpty {}
+
+message UpdateTodoRequest {
+  string id = 1;
+  bool completed = 4;
+}
+
+message DeleteTodoRequest {
+  string id = 1;
+}
+
+message TodoList {
+  repeated TodoWithID todos = 1;
+}
+
+message Todo {
+  string title = 1;
+  string priority = 2;
+  bool completed = 3;
+}
+
+message TodoWithID {
+  string id = 1;
+  string title = 2;
+  string priority = 3;
+  bool completed = 4;
+}
