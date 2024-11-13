@@ -1,4 +1,3 @@
-"use server";
 import type { StockInfo } from "@/types";
 import StockWithCounter from "@/components/stock-with-counter";
 
@@ -21,6 +20,7 @@ async function generateFakeStock(
   };
 }
 
-export const getStocks = () => {
+export const getStocks = async () => {
+  "use server";
   return STOCKS.map((id) => generateFakeStock(id, 3000));
 };
